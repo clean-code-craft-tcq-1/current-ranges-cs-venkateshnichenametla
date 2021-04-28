@@ -5,6 +5,7 @@ namespace BatteryMonitoring.Tests
     public class BatteryCurrentMeasurementsTests
     {
         BatteryCurrentMeasurements currentMonitoring = new BatteryCurrentMeasurements();
+        List<int> currentReadingsList = new List<int>() { 3, 3, 5, 4, 10, 11, 12 };
         [Fact]
         public void GivenEmptyList_WhenListIsEmpty_TrueIsReturned()
         {
@@ -39,7 +40,6 @@ namespace BatteryMonitoring.Tests
             Dictionary<string, int> expectedRangeList = new Dictionary<string, int>();
             expectedRangeList.Add("3-5", 4);
             expectedRangeList.Add("10-12", 3);
-            List<int> currentReadingsList = new List<int>() { 3, 3, 5, 4, 10, 11, 12 };
             Dictionary<string, int> actualRangeList = currentMonitoring.GetReadingRangesFromGivenList(currentReadingsList);
             Assert.Equal(actualRangeList, expectedRangeList);
         }
@@ -49,7 +49,6 @@ namespace BatteryMonitoring.Tests
             Dictionary<string, int> expectedRangeList = new Dictionary<string, int>();
             expectedRangeList.Add("3-5", 4);
             expectedRangeList.Add("10-12", 5);
-            List<int> currentReadingsList = new List<int>() { 3, 3, 5, 4, 10, 11, 12 };
             Dictionary<string, int> actualRangeList = currentMonitoring.GetReadingRangesFromGivenList(currentReadingsList);
             Assert.NotEqual(actualRangeList, expectedRangeList);
         }
