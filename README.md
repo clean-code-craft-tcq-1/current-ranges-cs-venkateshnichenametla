@@ -52,5 +52,5 @@ Adapt/adopt/extend the `yml` files from one of your workflow folders.
 
 Implement one failing test and at least one passing test:
 
-- _enter the name of a **passing** test
-- _enter the name of a **failing** test
+- GivenReadingsList_WhenListHasCurrentRanges_CompareActualAndExpectedMatches is a **passing** test
+- GivenReadingsList_WhenListHasCurrentRanges_CompareActualAndExpectedMisMatch is a **failing** test
