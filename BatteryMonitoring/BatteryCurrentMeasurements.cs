@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 namespace BatteryMonitoring
 {
@@ -10,20 +10,14 @@ namespace BatteryMonitoring
                 return true;
             return false;
         }
-        public bool AreValuesEnoughToMeasure(List<int> readingsList)
-        {
-            if (!IsReadingsListEmpty(readingsList) && readingsList.Count() > 1)
-                return true;
-            return false;
-        }
-        public Dictionary<string, int> GetReadingRangesFromGivenList(List<int> readingsList)
+        public Dictionary<string, int> GetEvaluatedReadingRangesFromGivenList(List<int> readingsList)
         {
             Dictionary<string, int> readingsWithRanges = new Dictionary<string, int>();
-            if (!IsReadingsListEmpty(readingsList) && AreValuesEnoughToMeasure(readingsList))
-                readingsWithRanges = FindReadingRanges(readingsList);
+            if (!IsReadingsListEmpty(readingsList))
+                readingsWithRanges = EvaluateReadingRanges(readingsList);
             return readingsWithRanges;
         }
-        private Dictionary<string, int> FindReadingRanges(List<int> readingList)
+        private Dictionary<string, int> EvaluateReadingRanges(List<int> readingList)
         {
             Dictionary<string, int> readingsWithRanges = new Dictionary<string, int>();
             readingList.Sort();
